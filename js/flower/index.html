@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>//面向对象设计模式之代理模式
+    //00编程
+        const dai={
+            name:"dai",//string 字面量
+            age:18,// number 字面量整形和浮点型
+            hometown:"jian",
+            hobbies:["basketball","football"],//数组字面量，不是数组，是对象
+            isSingle:true,//boolean 字面量
+            sendFlower(target){//函数字面量
+            target.receiveFlower(dai);
+        }
+    }
+        const xm={
+            name:"xiaomei" ,
+            age:18,
+            hometown:"jian",
+            xq:50,
+            receiveFlower(sender){
+                if(xm.xq<80){
+                    console.log("pa");
+                }else{
+                    console.log("xx");
+                    return;
+                }
+                console.log(sender.name+"送你一朵花" );
+            }
+           
+}
+        const xh={
+            name:"xiaohong",
+            age:18,
+            receiveFlower(sender){
+                setTimeout(function() {
+      xm.xq = 99
+      xm.receiveFlower(sender)
+    }, 2000)
+        }
+    }
+        const xh2={
+            name:"xiaohong2",
+            age:18,
+            
+            receiveFlower(sender){
+                xm.xq=100;
+            }
+
+        }
+    </script>
+</body>
+</html>
