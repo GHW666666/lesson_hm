@@ -1,11 +1,10 @@
+console.log(name);
 function sayHello(){
 let name = "g";
 for(let i = 0;i < 2;i++){
     console.log("Hello " + name + ".");
 }
-if(i==1){confirm("wokao");
 
-}
 }
 //es5 var全局变量声明
 var age = 25;
