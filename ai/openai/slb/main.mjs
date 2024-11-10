@@ -16,3 +16,4 @@ const response = await openai.chat.completions.create({
     题为爱上森林北的摇滚歌曲。森林北是一位美丽撒泼有活力的女孩`,
 });
 console.log(response);
+
