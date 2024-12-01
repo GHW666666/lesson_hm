@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ai users rag chatbot</title>
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="row col-md-6 col-md-offset-3">
+            <table class="table table-striped" id="user_table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>姓名</th>
+                        <th>家乡</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+
+            <div class="row">
+                <form name="aiForm">
+                    <div class="form-group">
+                        <label for="questionInput">提问</label>
+                        <input 
+                            type="text" 
+                            id="questionInput"
+                            class="form-control"
+                            name="question"
+                            placeholder="请输入问题"
+                            required="required"
+                        >
+                    </div>
+                    <button type="submit" class="btn btn-default" name="btn">查询</button>
+                </form>
+            </div>
+            <div id="message"></div>
+        </div>
+    </div>
+    <script>
+        const tableBody = document.querySelector("table tbody");
+        const oForm = document.forms["aiForm"];
+        let usersData;
+
+        // 前端向后端发送请求
+        fetch("http://localhost:3000/user")
+            .then(res => res.json())
+            .then(users => {
+                usersData = users;
+                for (let user of users) {
+                    const tr = document.createElement("tr");
+                    const td1 = document.createElement("td");
+                    const td2 = document.createElement("td");
+                    const td3 = document.createElement("td");
+                    td1.innerText = user.id;
+                    td2.innerText = user.name;
+                    td3.innerText = user.hometown;
+                    tr.append(td1, td2, td3);
+                    tableBody.append(tr);
+                }
+            });
+
+        oForm.addEventListener("submit", e => {
+            e.preventDefault(); // 阻止表单默认提交
+            const question = oForm.question.value.trim();
+            if (!question) {
+                alert("请输入问题");
+                return;
+            } // 防止输入空格
+            fetch(`http://localhost:1314/?question=${encodeURIComponent(question)}&data=${encodeURIComponent(JSON.stringify(usersData))}`)
+                .then(data => data.json())
+                .then(response => {
+                    console.log(response);
+                    if (response.result) {
+                        document.getElementById('message').innerText = response.result;
+                    } else {
+                        document.getElementById('message').innerText = "没有获取到有效的回答。";
+                    }
+                })
+                .catch(error => {
+                    console.error("Error:", error);
+                    document.getElementById('message').innerText = "请求失败，请稍后再试。";
+                });
+        });
+    </script>
+</body>
+</html>
