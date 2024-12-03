@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>类数组</title>
+</head>
+<body>
+    <!-- p{这是第$个段落}*10 -->
+    <p>这是第1个段落</p>
+    <p>这是第2个段落</p>
+    <p>这是第3个段落</p>
+    <p>这是第4个段落</p>
+    <p>这是第5个段落</p>
+    <p>这是第6个段落</p>
+    <p>这是第7个段落</p>
+    <p>这是第8个段落</p>
+    <p>这是第9个段落</p>
+    <p>这是第10个段落</p>
+    <script>
+        const pList = document.querySelectorAll('p');
+        const pList2=document.getElementsByTagName('p');
+        console.log(pList,pList2);
+        pList.forEach((node)=>{
+            console.log(node.__proto__);
+        })
+        pList2.forEach((node)=>{
+            console.log(node.__proto__.constructor);
+        })
+
+    </script>
+</body>
+</html>
