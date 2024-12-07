@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>定时器</title>
+</head>
+<body>
+    <script>
+        //卡，js单线程,如果不是异步，就会阻塞，鼠标滚动都会被卡住
+        // 1~5ms
+        // setTimeout(function(){
+        //     console.log('----');
+        // },0)//异步，不会阻塞
+        
+        // while(true){
+           
+        // }//同步代码，会阻塞
+        // console.log('123');
+        function c_setinterval(time){
+            let id=null
+            function fn(){
+                id=setTimeout(function(){
+                    fn();
+                    console.log('1')
+                },time)
+            }
+            fn();
+            console.log("********",id)
+            return id;
+        }
+        c_setinterval(100)
+    clearTimeout(c_setinterval(100))
+    </script>
+</body>
+</html>
