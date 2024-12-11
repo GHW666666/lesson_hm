@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size: 75px;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //阻塞 动态设置html font-size
+      (function(){
+        function callc(){
+          const w=document.documentElement.clientWidth;
+          document.documentElement.style.fontSize=w/10+'px'
+          //监听窗口变化
+          window.onresize=function(){}
+        }
+        callc();
+      })()
+    </script>
+    <style>
+        *{
+            margin: 0;padding: 0;
+        }
+        /* .box{
+            width: 1rem;
+            height: 1rem;
+            background-color: red;
+            display: inline-block;
+        }
+        .box2{
+            width: 5rem;
+            height: 5rem;
+            background-color: blue;
+            display: inline-block;
+        } */
+    </style>
+</head>
+<body>
+    <div>
+        <div class="box" style="width: 10rem;height: 2rem;background-color: red;"></div>
+         <div style="font-size: 0;">       
+        <div class="box2"style="display: inline-block; width: 5rem;height: 2rem;background-color: green"></div>
+        <div class="box2"style="display: inline-block;width: 5rem;height: 2rem;background-color: green;"></div>
+        </div>
+    </div>
+</body>
+</html>

@@ -7,3 +7,6 @@ for(let i=0;i<arr.length;i++){
      arr1.push(arr[i])
 }
 console.log(arr1)
+
+let { baz } = { foo: 'aaa', bar: 'bbb' };
+console.log(baz); // undefined
