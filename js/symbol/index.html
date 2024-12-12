@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const c = {
+            "a": "1",
+            "a": "2",
+            [Symbol('b')]:1,
+
+            [Symbol('b')]:2,
+        }
+        //仔细想想遍历对象字面量的方法你想到了几种
+        for(let key of c){
+            console.log(key)
+        }
+    </script>
+</body>
+</html>
