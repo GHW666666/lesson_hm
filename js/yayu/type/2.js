@@ -11,3 +11,7 @@ console.log(Number("0x123"))
 console.log(Number("-123.45"))
 console.log(Number(""),Number(''))
 console.log(Number('123abc'))
+console.log(0/0)
+console.log([-0].indexOf(+0));
+console.log(+0===-0);
+console.log(Object.is(+0,-0));
