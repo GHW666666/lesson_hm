@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <title>React Counter Example</title>
+    <script src="js/react.development.js"></script>
+    <script src="js/prop-types.js"></script>
+    <!-- 引入 Babel 编译 JSX 使用 BootCDN -->
+    <script src="js/react-dom.development.js"></script>
+    <script src="js/babel.min.js"></script>
+</head>
+<body>
+    <!-- 应用程序挂载点 -->
+    <div id="root"></div>
+    <script type="text/babel">
+        function Counter() {
+            const [count,setCount]=React.useState(0)
+           return(
+            <div>
+            Count: {count}
+            <button onClick={()=>setCount(count+1000000)}>+</button>    
+            </div>
+           )
+        }
+
+    ReactDOM.render(<Counter/>,document.getElementById('root'));   
+    </script>
+</body>
+</html>
