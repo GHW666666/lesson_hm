@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Example</title>
+    <style>
+        .done {
+            color: red;
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="app in apps" :key="app.title">
+                <span :class="{ done: app.done }">{{ app.title }}</span>
+            </li>
+        </ul>
+        <input type="text" v-model="newTask" placeholder="Type something..." @keydown.enter="addTodo">
+    </div>
+
+    <script src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/vue/3.2.31/vue.global.min.js"></script>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    newTask: '', // 绑定输入框的值
+                    apps: [
+                        { title: "吃饭", done: false },
+                        { title: "睡觉", done: false },
+                        { title: "打豆豆", done: false }
+                    ]
+                };
+            },
+            methods: {
+                addTodo() {
+                    if (this.newTask.trim() !== '') {
+                        this.apps.push({
+                            title: this.newTask,
+                            done: false
+                        });
+                        this.newTask = ''; // 清空输入框
+                    }
+                }
+            }
+        });
+
+        app.mount('#app'); // 挂载Vue应用到id为app的div元素上
+    </script>
+</body>
+</html>
