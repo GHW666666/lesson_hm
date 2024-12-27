@@ -19,3 +19,17 @@
      - todos 数据项
      - title 编辑数据   
      - @keydown.enter @event vue事件监听
+
+     # 双向绑定
+     - :class :value为什么出现
+      - 当我们需要动态绑定属性业务时
+     - all 所有任务数量 
+     - title todos不一样
+     - computed 计算属性
+       形式上是函数，返回值是一个值，当计算属性依赖的属性数据改变时，计算函数会重新计算
+       this 也可以找到计算属性，计算属性也算数据
+    - 数据和页面的正确
+    
+- vue2与vue3区别
+  set对应的data+method+computed
+  有利于大型项目的维护 
