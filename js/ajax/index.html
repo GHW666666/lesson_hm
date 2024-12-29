@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ajax数据接口</title>
+</head>
+<body>
+    <ul id="memberList"></ul>
+    <script>
+        const oUL=document.getElementById('memberList');
+        fetch("https://api.github.com/orgs/lemoncode/members")
+        .then(res=>res.json())
+        .then(data=>{
+           data.forEach(element => {
+               const oLI=document.createElement('li');
+               oLI.innerHTML=element.login;
+               oUL.appendChild(oLI);
+           });
+        })
+ 
+    </script>
+</body>
+</html>

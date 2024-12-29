@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="memberList"></ul>
+    <script>
+        const oUL=document.getElementById('memberList');
+        // fetch js主动拉去数据
+        // fetch前辈 XMLHttpRequest
+        const xhr=new XMLHttpRequest();//实例化xhr请求对象
+        xhr.open('GET','"https://api.github.com/orgs/lemoncode/members"');//初始化请求参数
+        xhr.onreadystatechange=function(){//监听请求状态变化
+        if(xhr.readyState==4 &&xhr.status==200 ){//请求完成
+        const data=JSON.parse(xhr.responseText);
+        
+
+        }
+    }
+        
+    </script>
+</body>
+</html>

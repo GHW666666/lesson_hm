@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="memberList"></ul>
+    <script>
+        const oUL = document.getElementById('memberList');
+
+        const getJSON = async function(url) {
+            try {
+                const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const data = await response.json();
+                console.log('请求成功', data);
+                return data;
+            } catch (error) {
+                console.error('请求失败', error);
+                throw error; // 重新抛出错误，以便在外部处理
+            }
+        };
+
+        getJSON('https://api.github.com/orgs/lemoncode/members')
+            .then(members => {
+                members.forEach(member => {
+                    const li = document.createElement('li');
+                    li.textContent = member.login;
+                    oUL.appendChild(li);
+                });
+            })
+            .catch(error => {
+                console.error('处理数据时出错', error);
+            });
+    </script>
+</body>
+</html>
