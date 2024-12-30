@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">1</div>
+    <button id="button">加</button>
+    <script>
+        var obj={
+            value:1//count
+        }
+        //拦截器 拦截对象属性的赋值操作
+        // 属性定义 定义对象属性的特性
+        let value=1;    
+        Object.defineProperty(obj,'value',{
+            get:function(){
+                return value
+            },
+            set:function(newValue){
+                console.log('set')
+                value=newValue;
+                document.getElementById('container').innerHTML=newValue
+            }
+        })
+        
+        document.getElementById('button').addEventListener('click',function(){ 
+            obj.value=obj.value+1;
+            
+        })
+    </script>
+</body>
+</html>
