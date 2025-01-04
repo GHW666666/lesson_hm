@@ -5,14 +5,13 @@
     <h3 class="brand">{{ name }}</h3>
     <nav class="menu">
     
-    <router-link to="/">首页</router-link>
-    <router-link to="/about">关于</router-link>
-    <router-link to="/posts">内容</router-link>
+    <router-link class="menu-item" to="/">首页</router-link>
+    <router-link class="menu-item" :to="{name:'about'}">关于</router-link>
+    <router-link class="menu-item" :to="{name:'postIndex'}">内容</router-link>
     </nav>
     </header>
     <main class="page-body">
-      <router-view />
-      
+      <router-view /> 
     </main>
   </div>
 </template>
@@ -22,6 +21,25 @@
 const name="质普华章"
 </script>
 
-<style  scoped>
-
+<style lang="stylus"  scoped>
+.page
+  padding 20px
+.page-header
+  display flex
+  align-items: center
+  border-bottom: 1px solid #e1e1e1
+.brand
+  margin-right: 32px
+.menu-item
+  display inline-block
+  text-decoration: none
+  color: #585858
+  margin: 8px
+  padding: 8px 16px
+.page-body
+  margin-top: 24px 0
+.router-link-active
+  color: #007bff
+  background #eee
+  border-radius: 4px
 </style>

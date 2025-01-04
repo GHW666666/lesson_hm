@@ -1,7 +1,11 @@
 <template>
     <div>
      <div> PostShow {{postId}}</div>
+     <hr>
+     <router-view />
     </div>
+   
+    
 </template>
 
 <script setup>

@@ -17,3 +17,17 @@ v-if/v-show,v-for)，三种数据(ref,props,computed)
 - router 专门的目录
   - index.js入口配置文件
   - router-link是vue-router提供的组件
+- vue-router 语法细节
+ - routes 拆分亮点
+ [
+  /
+  /About
+  ...users//用户模块
+  ...posts//文章模块
+ ]
+ - path,component
+   - name 有用
+   - props 路由传参
+
+- 路由历史记录history
+  router-link组件不是a标签，栈顶是当前路由，显示组件
