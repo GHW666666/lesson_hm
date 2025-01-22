@@ -24,3 +24,16 @@
    前端用户体验最佳体验是快
    所以按需加载页面级别组件 函数引入方式
    - 路由守卫
+- 表单组件
+ - :model="form"搜集表单数据
+ - ref获取表单实例
+  - 有时要获取dom元素，组件对象
+  - 先用ref标记组件
+   - eg<el-form
+      style="position:absolute;left: 45%;"
+      ref="formRef"
+      :model="form"
+      :rules="rules"
+      label-width="auto"
+      @validate="handleValidate"
+     >
