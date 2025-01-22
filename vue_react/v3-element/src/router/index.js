@@ -2,11 +2,12 @@ import {createRouter , createWebHistory} from 'vue-router'
 import Home from '../pages/Home.vue'
 import About from '../pages/About.vue'
 import Login from '../pages/Login.vue'
+//定义路由规则
 const routes = [
 {
 path:'/',
 name:'Home',
-component:Home,
+component:()=>import('../pages/Home.vue'),
 meta:{
 title:'Home',
 requireLogin:true
@@ -15,7 +16,7 @@ children:[
 {
 path:'about',
 name:'About',
-component:About,
+component:()=>import('../pages/About.vue'),
 meta:{
     title:'About',
     requireLogin:true
@@ -26,15 +27,26 @@ meta:{
 {
 path:'/login',
 name:'Login',
-component:Login,
+component:()=>import('../pages/Login.vue'),
 meta:{
     title:'登录',
     requireLogin:false
 }
 } 
 ]
+//创建路由对象
 const router = createRouter({
     history: createWebHistory(),
     routes,
 })
+//路由守卫
+router.beforeEach((to,from,next)=>{
+   document.title = to.meta.title || '首页'
+   if(to.meta.requireLogin ){
+    next('/login')
+    return
+   }
+   next()
+})
+//导出路由对象
 export default router
