@@ -37,3 +37,8 @@
       label-width="auto"
       @validate="handleValidate"
      >
+  - const formRef = ref(null)
+   - 挂在前为bull
+  - 表单的校验
+   - rules
+   - validate方法 
