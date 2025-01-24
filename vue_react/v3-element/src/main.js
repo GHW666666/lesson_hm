@@ -6,9 +6,16 @@ import {
     ElButton,
     ElForm,
     ElFormItem,
-    ElInput
-} from 'element3'
-import 'element3/lib/theme-chalk/index.css'
+    ElInput,
+    ElContainer,
+    ElHeader,
+    ElMenu,
+    ElMenuItem,
+    ElSubMenu,
+    ElMain,
+    ElAside
+} from 'element-plus'
+import 'element-plus/dist/index.css'
 import router from './router'
 createApp(App)
 .use(router)
@@ -17,6 +24,14 @@ createApp(App)
 .use(ElForm)
 .use(ElFormItem)
 .use(ElInput)
+.use(ElContainer)
+.use(ElHeader)
+.use(ElMenu)
+.use(ElMenuItem)
+.use(ElSubMenu)
+
+.use(ElAside)
+.use(ElMain)
 .mount('#app')
 
 
