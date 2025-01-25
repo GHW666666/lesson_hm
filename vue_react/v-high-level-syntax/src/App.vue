@@ -1,5 +1,19 @@
-<template>
+<template>  
   <div>
+
+    <BaseCard> <p>这里是插槽</p></BaseCard>
+   
+    <Layout>
+      <h1>默认头部slot</h1>
+      <template v-slot:header>
+        <h1>这里是头部，父组件决定</h1>
+      </template>
+      <template v-slot:footer>
+        <h1>这里是底部，父组件决定</h1>
+        </template> 
+    </Layout>
+
+
 <p>计数器:{{count}}</p>
 <button @click="increment">+</button>
   
@@ -18,6 +32,8 @@
 
 
 <script setup>
+import BaseCard from './components/BaseCard.vue'
+import Layout from './components/Layout.vue'
 import {
   ref,
   watch,
@@ -42,8 +58,8 @@ watch(count,(newValue,oldValue)=>{
     console.log('太大了')
   }
 },{
-  immediate:false,
-  deep:false
+  immediate:true,//默认是false，立即执行一次
+  deep:false//深度监听，默认是false
 })
 //监听，订阅发布者模式，观察者模式
 watchEffect(()=>{
