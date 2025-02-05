@@ -58,7 +58,7 @@ const onSubmit = async () => {
       console.log(res);
       if (res.data.code == 200) {
         console.log(res.data.data);
-        router.push('/')
+        // router.push('/')
       } else {
         console.log(res.data.message);
       }

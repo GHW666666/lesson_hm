@@ -51,3 +51,9 @@
   - login.vue组件化表单
   - 调用api/login.js接口
   - 统一的axios实例发送请求  
+- 后端模拟
+ - mock
+
+- jwt 登录
+ - npm install jsonwebtoken
+ 
