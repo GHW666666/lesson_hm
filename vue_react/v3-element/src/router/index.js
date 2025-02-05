@@ -42,11 +42,12 @@ const router = createRouter({
 //路由守卫
 router.beforeEach((to,from,next)=>{
    document.title = to.meta.title || '首页'
-//    if(to.meta.requireLogin ){
-//     next('/login')
-//     return
-//    }
+   if(to.meta.requireLogin ){
+    next('/login')
+    return
+   }
    next()
 })
+// const onSubmit=async()
 //导出路由对象
 export default router

@@ -42,3 +42,12 @@
   - 表单的校验
    - rules
    - validate方法 
+- web 应用
+ http协议 基于请求加响应
+ - 会话session
+ - cookie
+- 登录流程
+ - 前端提交登录
+  - login.vue组件化表单
+  - 调用api/login.js接口
+  - 统一的axios实例发送请求  
