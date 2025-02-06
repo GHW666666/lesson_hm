@@ -57,8 +57,9 @@ const onSubmit = async () => {
       const res = await login(form);
       console.log(res);
       if (res.data.code == 200) {
-        console.log(res.data.data);
-        // router.push('/')
+        // console.log(res.data.data);
+        localStorage.setItem('token', res.data.data);
+        router.push('/')
       } else {
         console.log(res.data.message);
       }

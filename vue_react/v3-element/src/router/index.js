@@ -43,9 +43,13 @@ const router = createRouter({
 router.beforeEach((to,from,next)=>{
    document.title = to.meta.title || '首页'
    if(to.meta.requireLogin ){
-    next('/login')
-    return
+   if(localStorage.getItem('token')){
+       next()
+
+   }else {
+       next('/login')
    }
+}
    next()
 })
 // const onSubmit=async()

@@ -56,4 +56,14 @@
 
 - jwt 登录
  - npm install jsonwebtoken
- 
+
+- vitejs启用viteMockServe插件
+- 模拟登录接口
+- mock文件模拟后端接口
+- api封装axios
+- 前端组件onMounted生命周期 发送接口请求
+
+- 验证用户身份接口
+- token再localStorage 
+?token=${token} 携带token
+- 请求头 Authorization 
