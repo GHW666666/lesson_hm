@@ -1,0 +1,13 @@
+# weather
+- 组件思维
+- BFC 基本概念
+  - BLock Formatting Context
+  - 块级格式化上下文
+  - float 早期用来实现两列布局的方案 float : left float : right
+  - 产生问题
+    - 子元素离开了文档流，父元素高度塌陷，无法适应子元素的高度
+  - 和position区别的点，四个方向 完全脱离文档流
+  - float 左右没有完全离开文档流，影响周边的元素，形成环绕效果  
+  - overflow:auto  display:flex 给nav元素开启了BFC
+    - 规则，BFC元素可以得到内部元素的高度
+    - 块级元素不等于BFC

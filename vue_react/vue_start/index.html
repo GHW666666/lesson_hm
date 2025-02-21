@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue3</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/3.4.9/vue.global.js"></script>
+</head>
+<body>
+    <!-- vue3挂载点 -->
+    <!-- dom 挂载点 -->
+    <div id="root">
+    <p>Count:{{count}}</p>
+    <button @click="int">+</button>
+    <h1>{{str}}</h1>
+    </div>
+    <script type="module">
+       const {
+        createApp,
+        ref
+       } = Vue;
+       createApp({
+        //准备应用需要的数据
+        setup(){
+          const count = ref(0); 
+          const str="hello world"
+          const int = () => {
+          count.value++;
+          }
+           return {
+            count,
+            str,
+            int
+        };
+        }
+
+       }).mount('#root');   
+       
+
+    </script>
+</body>
+</html>

@@ -1,15 +1,30 @@
-function Person(){
+Object1 = {
+    name:'deng',
+    age:18
+}
+Object2 ={
+    name:'ru',
+    age:18
+}
+
+const Person = function(){
 
 }
-function Person1(){
-  this.name = "tom";
-  this.age = 3;
-}
-Object1=new Object();
+Person.prototype = Object1;
+const p1 = new Person();
+console.log(p1); //deng
 
-p=new Person();
+console.log(Person.prototype); //deng
 
-console.log(p.__proto__.constructor);
-//p.__proto__=Person1;
-//console.log(p.__proto__);
+Person.prototype = Object2;
+console.log(Person.prototype);
+//console.log(p1.name); 
+console.log(p1.__proto__);
+
+const p=new Person();
+console.log(p.name);
+
+
+
+
 

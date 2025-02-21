@@ -1,4 +1,5 @@
-import {createCrawl  //返回爬虫示例
+import {
+    createCrawl  //返回爬虫示例
     ,createCrawlOpenAI //OpenAI配置项
 } from 'x-crawl';
 // 实例化爬虫应用

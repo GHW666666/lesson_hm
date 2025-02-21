@@ -1,103 +1,126 @@
-## 春招执行方案
+# AI Assistant 全栈项目
+- 大前端全栈
+- 后端驱动全栈为主
+  - 设计模式
+    大前端 前端 mvvm 思想  model(数据状态 useState, ref/reactive, api/axios 接口， pinia) view
 
-- 时间
-  3月-5月 
-- 大厂最容易
-  - 语言能力
-  - 面试能力
-  - 算法 
-- 3月份-4月份 面试新手期 4月份远程实习（AI远程实习） 
-  - 拿下一个offer 150一天
-    - 年前的vue 项目模版 旅行 80% 20% 修改  
-    - transform + react  
-    - node + 全栈 + vue/react    10天
-    - leetcode 100+ 3题+
-
-  - 第二个目标点，找到远程实习，面大厂之前有一份实习经验 （通过简历）
-  - 4-5月份边实习边提升面试能力 （凯闻 ）
-  - 百度/字节 大厂 + 未来AI大厂
-  - 5.1 润出去  -  9月份  4月+ 
-
-## deepseek
-- 性价比高
-  aigc 
-  百万 tokens  1元 
-  tokens 提问以及返回 按token计费 
-  token 分词  
-
-  参照物 gpt4 o1  每百万 280人民币  99.6% 省了
-- 为什么省
-  - OpenAI 堆算力 GPU 
-  - 新的算法 甚至可以绕开 英伟达 cuda 编程 
-  - DeepSeek V3 2048 块 H800  557.6万美元 ，meta llama3 是deepseek 的11倍
-    openai No.1 闭源的 
-    llama3  开源LLM No.1的
-  - 英伟达股价大跌 
-  - 用户  -》 赚钱 -》AI 
-
-## DeepSeek AI 全栈APP
-  前端 + 后端 + LLM = AI fullstuck 
-
-- ai应用集合项目
-  coze 工作流 + ai 应用
-  deepseek  openai 的替代品 prompt 
-  langchain  rag 应用开发 
-
-- react(chatbot)  
-- node koa 
-  前端提供api 调用 
-- LLM 请求（deepseek + ollama ）  302.ai
-  离线大模型调用？
-
-  react <-> koa <-> LLM 
-- 大前端 （前后端分离）
-  - 前端包着后端
-    
-    - 前端
-    domain：5173
-      - react 组件
-    - 后端
-    domain：3000 请求
-      - koa 框架
-      - http 服务 3000 伺服状态
-      - 路由 /chatai  message ?
-        - npm i koa-router (周边生态)
-        - 实例化路由对象 new Router()
-        - router.Method('/path', async (ctx) => {
-
-        } ) 注册路由
-        - ctx 上下文对象 request +  response
-        - ctx.body 设置响应体 
-    - 跨域 同源策略
-    前端跨越请求 浏览器为了保护用户安全禁止跨域请求
-    - http协议不同
-    - 域名不同
-    - 端口不同
-    前端解决跨域
-    - jsonp
-    后端返回一个函数调用
-    前端执行callback函数
-    同源策略会限制其读取响应内容以防信息泄露。而CORS（跨源资源共享）机制允许服务器通过特定的HTTP响应头告知浏览器该请求是被允许的，从而解除这种限制。因此，虽然同源策略会限制JavaScript读取跨域请求的响应，但不会直接“block”请求本身；相反，它控制的是能否访问请求的结果。
-    - options预请求
-     - 复杂(post)跨域请求时，浏览器会先发送一个OPTIONS预检请求到服务器。这个请求的目的是询问服务器是否允许跨源资源共享（CORS）。如果服务器响应了OPTIONS请求并表明 被允许才会继续发送请求
-
-    - 后端解决跨域
-    - cors 跨域资源共享
-     - 服务器端用http上下文ctx设置响应头 Access-Control-Allow-Origin: * 允许所有域名访问
-
-    - koa服务
-     - 中间件服务 洋葱模型
-      - 有顺序执行 next() 执行下一个中间件
-
-- vue 与 react 对比
- - vue - v-model
- - react - 单项数据流 双向性能不好
-  - react实现双向绑定 单项+onchange事件
- - vue支持实现修饰符 api友好 @keydown.enter="handleKeydown" 修饰符
- - react手写  onkeyup={(e) => e.key === "Enter" && handleKeydown()}
+    model 模型层 = 数据定义 + 数据处理 + 数据存储 + 数据管理 + 数据请求
+    view 视图层 = component 组件  views  components
+    vm 视图模型层 数据绑定{} {{}}  数据驱动界面（v-if/v-show/v-for）...  script 事件监听 @change  onChange props 
 
 
 
+    写到哪算哪， 产品设计线框图 idear 亮点  10分钟 
+
+    后端 mvc 思想  数据库 mysql table 简历模型
+    model 数据库独立于后端的  数据模型文件 schema orm 
+    view 视图层 = 前端页面 index.html about.html
+    controller 控制器层
+
+  - 并发数
+  - 基础设施 
+  - DDos 肉鸡攻击 qps 
+
+## 后端全栈AI 项目 
+- python flask 框架  node koa 
+  app.py  单点入口
+- 纯js
+- deepseek 在线api 
 
 
+## 写文章(ts + next.js + react 思想) + leetcode 150 
+  面试
 
+## 项目准备
+- 安装python 
+  3.10.6
+
+- 配置虚拟环境
+  python -m venv name
+  本地项目项目依赖 不受全局影响，不影响全局 
+  项目下有了项目依赖包
+  source ai_assistant/bin/activate
+- 安装依赖
+
+  pip install openai Flask python-dotenv -i https://mirrors.aliyun.com/pypi/simple/
+
+  openai 已经成为了aigc LLM 的事实标准 
+  /completion /chat 
+  base_url deepseek 
+
+  Flask koa 后端框架
+
+  - 没有做前后端分离 mvc 开发模式 
+    - 前端 static 目录下
+    - 路由 /  显示index.html 
+
+- 静态文件
+  - js/css/img FE 
+  - 启动静态服务器
+
+- 状态码
+  1XX 请求中...
+  2XX 成功  201 Created 
+  3XX 重定向
+  4XX 客户端错误 
+    405 Method Not Allowed 方法不允许
+    代码不会出问题
+  5XX 服务器错误
+
+  响应头第一个数据包 浏览器或程序 就通过状态码知道怎么处理
+  程序逻辑的一部分
+
+- env
+
+## 界面
+
+- html 结构
+  - 写注释
+  - 图标字体库 font-awesome iconfont
+    - 性能优化
+    - 小图标都用图片，http 请求数的暴涨，网页同时并发请求数是有上限的
+    - 下载一个图标字体文件 
+    - fas fa-comment-alt  
+    - font-awesome 不提供选择， 都是一样的 
+  - css 样式的组合 面向对象特性 多态 方便复用和维护
+    tailwindcss 原子类
+  - textarea LLM 支持比较多的tokens 出入长度 kimi deepseek
+  - 语义化标签
+- css 
+  - 弹性布局
+    - 居中
+    - flex-direction: row|column
+    - align-items 纵轴
+    - justify-content 横轴 flex-start space-between 
+  - grid 布局
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap 24px
+  - 响应式布局
+    width max-width 
+    @media screen and (max-width: 768px) {
+      
+    }
+  - transition animation 
+    - width transition ipad 旋转屏幕
+    - transition: 多个属性分别设置
+  - 面向对象思想
+    - 封装 多态 继承
+    - button 样式组件 基础样式
+      UI风格 antd 
+    - 组合业务样式
+      primary secondary default -> tailwindcss 原子类
+  - calc
+    CSS中执行简单的数学运算,用于动态布局设计中精确控制元素大小与位置。
+    性能有一点的问题， 不能滥用， 涉及不必要的重绘重排
+  - flex: 1;
+    flex-grow 1 其他子元素没有设置， 主元素，其他元素占完后，剩下的都归他来grow ; 多个子元素都设置 按比例划分。
+    flex-basis
+    flex-shrink
+
+## 业务
+  - 界面业务
+    - grid布局
+    - transition
+    - css 面向对象
+  - scrollToTop 业务

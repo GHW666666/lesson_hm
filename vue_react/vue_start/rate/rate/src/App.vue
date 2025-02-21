@@ -16,6 +16,7 @@ import AppAside from './components/AppAside.vue'
 
 <style  scoped>
 .flx{
+
   display: flex;
   
 }

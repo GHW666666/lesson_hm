@@ -24,7 +24,7 @@ def chat():
         model = data.get('model')
         messages = data.get('messages')
         temperature = data.get('temperature', 1.0)
-        #创造性 
+
         if not model or not messages:
             logging.error("Missing required fields in request")
             return jsonify({"error": "缺少必要的字段"}), 400

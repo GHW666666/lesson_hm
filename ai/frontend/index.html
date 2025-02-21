@@ -30,13 +30,19 @@
             { "input": "scalable architecture for growing user base", "output": "backend" }
         ];
         const network = new brain.recurrent.LSTM();
+
+
+
         network.train(data,{
             iterations:2000,
             log:true,
             logPeriod:100
         });
+
+
         const output = network.run("css flexbox for layouts");
         console.log(output);
     </script>
 </body>
 </html>
+
