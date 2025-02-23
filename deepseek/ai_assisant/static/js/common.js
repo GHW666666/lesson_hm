@@ -79,6 +79,13 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   const saveChatLog = (role, content) => {
+    //JSON.parse() 方法用于将一个 JSON 字符串转换为对象
+    //JSON.stringify() 方法用于将 JavaScript 值转换为 JSON 字符串
+    //localStorage 用于长期存储数据，浏览器关闭后数据不会丢失 5MB限制
+    //cookie 用于存储少量数据，浏览器关闭后数据会丢失 4KB限制
+
+
+    //setItem() 方法接受两个参数：键名和值（可以是字符串或对象），该方法会将给定的键值对添加到 localStorage 中。如果该键已经存在，则其旧的值会被新值覆盖。
     const chatLog = JSON.parse(localStorage.getItem('chatLog')) || [];
     chatLog.push({
       role,
@@ -92,7 +99,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const copyButton = document.createElement('button');
     copyButton.innerHTML = '<i class="fas fa-copy"></i>';
     copyButton.classList.add('copy-button');
-
+   //navigator 浏览器对象 BOM browser object model 
     copyButton.addEventListener('click', () => {
       navigator.clipboard.writeText(content).then(() => {
         alert('内容已复制到剪贴板！');
