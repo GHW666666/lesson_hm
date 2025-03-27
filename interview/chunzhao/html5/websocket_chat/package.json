@@ -1,0 +1,17 @@
+{
+  "name": "websocket_chat",
+  "version": "1.0.0",
+  "description": "- 五层模型\r     - 物理层\r     - 数据链路层\r     - 网络层\r     - 传输层\r     - 应用层\r - tcp/ip 传输层协议\r - http是 应用层协议\r - b/s 架构 \r     - 浏览器/服务器\r - 及时通信 Socket 协议",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "koa": "^2.16.0",
+    "koa-websocket": "^7.0.0"
+  }
+}
