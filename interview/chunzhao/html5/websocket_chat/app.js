@@ -8,7 +8,7 @@ const clients = new Set();
 
 
 app.use(async ctx => {
-  ctx.body = `
+    ctx.body = `
   <html>
     <body>
       <div id="messages" style="height: 300px; overflow-y: scroll;"></div>
@@ -36,18 +36,22 @@ app.use(async ctx => {
 // 处理socket 连接 
 // ws  websocket 简写
 app.ws.use(async (ctx, next) => {
-  clients.add(ctx.websocket)
-  console.log('-------------')
-  // 事件监听？
-  ctx.websocket.on('message', message => {
-    // console.log(message, '||||||', ctx.websocket)
-    for (const client of clients) {
-      client.send(message.toString()) // 服务器广播给所有的用户
-    }
-  })
+    clients.add(ctx.websocket)
+    console.log('-------------')
+    // 事件监听？
+    ctx.websocket.on('message', message => {
+        // console.log(message, '||||||', ctx.websocket)
+        for (const client of clients) {
+            client.send(message.toString()) // 服务器广播给所有的用户
+        }
+    })
+    ctx.websocket.on('close', () => {
+        console.log('断开连接')
+        clients.delete(ctx.websocket) 
+    })
 })
 
 // http 伺服
 app.listen(3001, () => {
-  console.log(`server running on http://localhost:3000`);
+    console.log(`server running on http://localhost:3000`);
 })
